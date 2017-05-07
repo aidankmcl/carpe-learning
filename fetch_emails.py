@@ -1,12 +1,16 @@
-import httplib2, os, base64, re
-
-from apiclient import discovery
-from oauth2client import client
-from oauth2client import tools
-from oauth2client.file import Storage
-from pprint import PrettyPrinter
-from wrangle import update_jsons
+import base64
+import os
+import re
 from binascii import Error
+from pprint import PrettyPrinter
+
+import httplib2
+from apiclient import discovery
+from oauth2client import client, tools
+from oauth2client.file import Storage
+
+from wrangle import update_jsons
+
 pp = PrettyPrinter()
 
 try:
@@ -123,7 +127,7 @@ def parse_email(message):
 def retrieve_emails(service, next_page=None):
     """Accesses Carpebot's inbox to find new emails
     Marks those emails as accessed by adding the "email_stored" label
-    Parses the emails and then adds them to the JSON corresponding to the month they 
+    Parses the emails and then adds them to the JSON corresponding to the month they
     were sent
     """
     results = service.users().messages().list(userId='me', q="to:carpediem@lists.olin.edu NOT label:email_stored", pageToken=next_page).execute()

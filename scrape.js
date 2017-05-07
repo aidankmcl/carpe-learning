@@ -22,7 +22,7 @@ casper.then(function() {
 	this.echo("Made it to auth'd page, scraping... you should see links soon...");
 	links = this.getElementsAttribute('[href*=".txt.gz"]', 'href');
 	this.each(links, function(self, link) {
-		// Format of link is <Year-Month.txt.gz>		
+		// Format of link is <Year-Month.txt.gz>
 		var linkInfo = link.split('.')[0].split('-');
 		var month = linkInfo[1].toLowerCase();
 		var year = linkInfo[0];

@@ -21,7 +21,7 @@ function getRandomPosition(type) {
   if (randomWidth < offLimits[0].width && randomHeight < offLimits[0].height) {
     randomHeight += offLimits[0].height;
   }
-  
+
   // Code to come later for avoiding notification boxes
 
   return {
@@ -84,7 +84,7 @@ $(document).ready(function(){
   var socket = io.connect(protocol + document.domain + ':' + location.port + '/text');
 
   // So that newly placed cards don't go above/underneath UI elements
-  window.offLimits = [{  // First is the number in the top left that we 
+  window.offLimits = [{  // First is the number in the top left that we
     'x': 0,           // know will be there.
     'y': 0,
     'width': $('#number').width() + 30,  // Margin is 20, plus 10 padding

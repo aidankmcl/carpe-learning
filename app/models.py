@@ -1,9 +1,9 @@
 
-from datetime import datetime
-import sys
 import json
 import os
 import re
+import sys
+from datetime import datetime
 
 import parsedatetime as pdt
 from pymongo import MongoClient
@@ -51,9 +51,9 @@ def get_email_model(email_json):
 
 
 def identify_events(data, src_id, date, collection):
-    """Finds dates in the subjects of emails or texts, and creates events from those dates. Data is a string, src_id is the 
+    """Finds dates in the subjects of emails or texts, and creates events from those dates. Data is a string, src_id is the
     unique id associated with the email or text in its respective collection, and date is the datetime the email or text was sent,
-    and collection is the collection the email or text goes into 
+    and collection is the collection the email or text goes into
     """
     is_event = False
     event_date = cal.parseDT(data, date)
@@ -86,7 +86,7 @@ def add_emails(date=None):
 #     else:
 #         emails = EMAIL_COLLECTION.find()
 #         texts = TEXT_COLLECTION.find()
-    
+
 #     for email in emails:
 #         # If the subject is not in EVENTS, strip out an event and add that and the subject to EVENTS
 #         if not EVENT_COLLECTION.find({"src_id": emai['_id']}):

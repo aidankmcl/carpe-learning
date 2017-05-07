@@ -1,10 +1,11 @@
 import os
 
-from pymongo import MongoClient
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from sklearn.metrics import adjusted_rand_score
 from sklearn.feature_extraction import text
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import adjusted_rand_score
+
+from pymongo import MongoClient
 
 stop_words = text.ENGLISH_STOP_WORDS.union([
     "carpediem", "Carpediem", "olin", "lists", "students", "listinfo", "edu",

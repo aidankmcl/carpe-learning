@@ -6,25 +6,25 @@ date  : 2017-01-18
 license: MIT
 """
 
-import os
 import json
-import sys
+import os
 import re
+import sys
 from datetime import datetime
-from bson import json_util
+from pprint import PrettyPrinter
 
+import requests as r
 from bs4 import BeautifulSoup
 from flask import Flask, redirect, render_template, request, url_for
-from jinja2 import evalcontextfilter, Markup, escape
-import requests as r
-from pymongo import MongoClient
-import parsedatetime as pdt
-from pprint import PrettyPrinter
-from flask_socketio import SocketIO, emit
-from twilio.rest import Client
+from jinja2 import Markup, escape, evalcontextfilter
 
+import parsedatetime as pdt
 from app.factory import create_app
 from app.models import get_date_format, identify_events
+from bson import json_util
+from flask_socketio import SocketIO, emit
+from pymongo import MongoClient
+from twilio.rest import Client
 
 pp = PrettyPrinter()
 
